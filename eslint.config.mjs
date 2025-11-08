@@ -2,11 +2,7 @@ import globals from "globals";
 import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import eslintPluginVue from 'eslint-plugin-vue'
-
-// disable import plugin for now (until https://github.com/import-js/eslint-plugin-import/issues/2948
-// and https://github.com/import-js/eslint-plugin-import/issues/2556 have been resolved)
-// import eslintPlugingImport from 'eslint-plugin-import';
+import eslintPluginVue from "eslint-plugin-vue";
 
 export default [
   js.configs.recommended,
@@ -18,26 +14,9 @@ export default [
       sourceType: "module",
     },
   },
-  //{
-  //  plugins: {
-  //    import: eslintPlugingImport,
-  //  },
-  //  files: ['**/*.js', '**/*.mjs', '**/*.ts'],
-  //  rules: {
-  //    ...eslintPlugingImport.configs.recommended.rules,
-  //    "import/order": [
-  //      "error",
-  //      {
-  //        "groups": ["type", "builtin", ["sibling", "parent"], "index", "object"],
-  //        "newlines-between": "never",
-  //        alphabetize: {order: "asc", caseInsensitive: true},
-  //      },
-  //    ],
-  //  },
-  //},
   eslintConfigPrettier,
   eslintPluginPrettierRecommended,
-  ...eslintPluginVue.configs["flat/strongly-recommended"],
+  eslintPluginVue.configs["flat/strongly-recommended"],
   {
     rules: {
       "vue/max-attributes-per-line": "off",
